@@ -8,15 +8,15 @@ class Solution:
             value.append(index)
             indexed[item] = value
         
-        for i, n in enumerate(nums):
-            value: int = target - n
-            x: list | None = indexed.get(value, None)
-            if x is None:
+        for index, number in enumerate(nums):
+            target_num: int = target - number
+            indexes: list | None = indexed.get(target_num, None)
+            if indexes is None:
                 continue
             else:
-                if value == n and len(x) >= 2:
-                    return x[:2]
-                elif value == n and len(x) < 2:
+                if value == indexes and len(indexes) >= 2:
+                    return indexes[:2]
+                elif value == indexes and len(indexes) < 2:
                     continue
                 else:
-                    return [i, x[0]]
+                    return [index, indexes[0]]
